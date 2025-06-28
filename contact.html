@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiger Martial Arts | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<style>
+  /* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  color: #1c1c1c;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background-color: #121212;
+  padding: 20px 0;
+  color: #f1f1f1;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Zen Dots', cursive;
+  font-size: 1.8rem;
+  color: #f3b40f;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: #f1f1f1;
+  padding: 6px 12px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #f3b40f;
+  color: #121212;
+  border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/hero-bg.jpg') no-repeat center center/cover;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.hero-text {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  background-color: #f3b40f;
+  color: #121212;
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #c29000;
+  color: white;
+}
+
+/* Classes Section */
+.classes {
+  padding: 60px 0;
+  background-color: #fafafa;
+}
+
+.classes h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.class-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h3 {
+  margin-top: 15px;
+  color: #f3b40f;
+}
+
+.card p {
+  padding: 10px 15px;
+}
+
+/* Testimonials */
+.testimonials {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 30px;
+}
+
+.testimonial-slider {
+  max-width: 700px;
+  margin: auto;
+}
+
+.testimonial {
+  display: none;
+}
+
+.testimonial.active {
+  display: block;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Join Us Section */
+.join {
+  padding: 60px 0;
+  background-color: #f3b40f;
+  color: #121212;
+  text-align: center;
+}
+
+.join h2 {
+  margin-bottom: 10px;
+}
+
+.join p {
+  margin-bottom: 20px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* Footer */
+footer {
+  background-color: #121212;
+  color: #f1f1f1;
+  padding: 30px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-right {
+  flex: 1;
+}
+
+.socials a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+/* Timetable Section */
+.timetable {
+  padding: 60px 0;
+  background-color: #fdf9f3;
+}
+
+.timetable h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #1c1c1c;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+  font-size: 0.95rem;
+}
+
+table thead {
+  background-color: #f3b40f;
+  color: #121212;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 12px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Classes Section (Modernized Grid) */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.class-box {
+  background: #fff8e1;
+  border-left: 6px solid #f3b40f;
+  border-radius: 10px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.class-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #1c1c1c;
+}
+
+.class-box p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.class-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* Optional color themes (advanced styling per class) */
+.class-box.karate { border-color: #e53935; }
+.class-box.judo { border-color: #3949ab; }
+.class-box.muaythai { border-color: #f4511e; }
+.class-box.bjj { border-color: #00897b; }
+.class-box.private { border-color: #6a1b9a; }
+.class-box.openmat { border-color: #00acc1; }
+.class-box.kids { border-color: #43a047; }
+
+/* Enhanced Footer Styles */
+.site-footer {
+  background-color: #121212;
+  color: #f1f1f1;
+  padding: 60px 20px 30px;
+  font-size: 0.95rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-column h3,
+.footer-column h4 {
+  color: #f3b40f;
+  margin-bottom: 12px;
+}
+
+.footer-column p,
+.footer-column a {
+  color: #dcdcdc;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #f3b40f;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links li a {
+  transition: color 0.3s ease;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 1.3rem;
+  color: #f1f1f1;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #f3b40f;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Membership Section */
+.membership-section {
+  padding: 80px 20px;
+  background: #fafafa;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #1c1c1c;
+}
+
+.membership-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  border-top: 5px solid #f3b40f;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #121212;
+  margin-bottom: 10px;
+}
+
+.card .tag {
+  font-size: 0.85rem;
+  background: #eee;
+  color: #555;
+  padding: 5px 12px;
+  border-radius: 15px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.card .tag.popular {
+  background: #f3b40f;
+  color: #121212;
+}
+
+.card .tag.best-value {
+  background: #43a047;
+  color: #fff;
+}
+
+.card .price {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #e53935;
+}
+
+.card .price span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.card ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.add-btn {
+  background-color: #f3b40f;
+  color: #121212;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #d89f00;
+  color: #fff;
+}
+
+/* Instructors Section */
+.instructors-section {
+  padding: 80px 20px;
+  background: #fcfcfc;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #1c1c1c;
+  margin-bottom: 50px;
+}
+
+.instructor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Instructor Card */
+.card.instructor {
+  background: #fff;
+  border-radius: 12px;
+  border-left: 6px solid #f3b40f;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  padding: 20px 25px;
+}
+
+.card.instructor:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  color: #121212;
+  margin: 0;
+}
+
+.role-tag {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #555;
+  background: #eee;
+  padding: 3px 10px;
+  border-radius: 15px;
+}
+
+.card-body ul {
+  margin-top: 15px;
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.card-body ul li {
+  margin-bottom: 8px;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.badge.professional { background-color: #6a1b9a; }
+.badge.certified { background-color: #00897b; }
+.badge.veteran { background-color: #f4511e; }
+.badge.health { background-color: #43a047; }
+
+/* Theme Accents */
+.card.martial { border-left-color: #e53935; }
+.card.fitness { border-left-color: #43a047; }
+
+/* Contact Section */
+.contact-section {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.contact-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #1c1c1c;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #f3b40f;
+  outline: none;
+}
+
+.contact-btn {
+  padding: 12px 20px;
+  background-color: #f3b40f;
+  color: #121212;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+  background-color: #d89f00;
+  color: #fff;
+}
+
+.contact-info {
+  background: #121212;
+  color: #f1f1f1;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #f3b40f;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contact-info a {
+  color: #f3b40f;
+  text-decoration: none;
+}
+
+.map-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+</style>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <h1 class="logo">Tiger Martial Arts</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="memberships.html">Memberships</a></li>
+    <li><a href="instructors.html">Instructors</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="contact.html">Contact</a></li>
+       <li><a href="register.html">Register</a></li>
+   
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Contact</h2>
+      <p>Train with experts in a world-class martial arts facility in Sharjah.</p>
+
+    </div>
+  </section>
+
+
+
+ <section class="contact-section">
+  <div class="container">
+    <h2 class="contact-heading">Get In Touch With Us</h2>
+    <div class="contact-wrapper">
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Booking enquiry, membership..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+          </div>
+          <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Contact Details</h3>
+        <p><strong>Location:</strong> Al Majaz, Sharjah, UAE</p>
+        <p><strong>Phone:</strong> <a href="tel:+971551234567">+971 55 123 4567</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@tigermartial.ae">info@tigermartial.ae</a></p>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Enhanced Footer -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <!-- Company Info -->
+    <div class="footer-column">
+      <h3 class="footer-logo">Tiger Martial Arts</h3>
+      <p>Al Majaz, Sharjah, UAE<br />
+      Phone: <a href="tel:+971551234567">+971 55 123 4567</a><br />
+      Email: <a href="mailto:info@tigermartial.ae">info@tigermartial.ae</a></p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="signup.html">Join Now</a></li>
+        <li><a href="forum.html">Community Forum</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="footer-column">
+      <h4>Our Location</h4>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+  </div>
+
+  <!-- Bottom Footer Bar -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 Tiger Martial Arts | Developed by WebWorld, Sharjah</p>
+  </div>
+</footer>
+
